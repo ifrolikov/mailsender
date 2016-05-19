@@ -1,5 +1,6 @@
 {
   "name": "ifrolikov/mailsender",
+  "version": "0.0.1",
   "description": "MailSenders tools",
   "type": "library",
   "require": {
