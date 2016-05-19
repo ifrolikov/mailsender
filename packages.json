@@ -1,11 +1,12 @@
 {
   "name": "ifrolikov/mailsender",
+  "version": "0.1.0",
   "description": "MailSenders tools",
   "type": "library",
   "source": [
     {
       "type": "git",
-      "url": "git@github.com:ifrolikov/mailsender.git"
+      "url": "https://github.com/ifrolikov/mailsender.git"
     }
   ],
   "require": {
