@@ -1,0 +1,11 @@
+{
+  "name": "ifrolikov/mailsender",
+  "description": "MailSenders tools",
+  "type": "library",
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "autoload": {
+    "files": ["init.php"]
+  }
+}
