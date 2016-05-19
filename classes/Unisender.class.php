@@ -10,6 +10,7 @@ class Unisender extends \MailSender\Classes\AbstractMailSender {
             throw new \Exception("Пустой ключ ".__CLASS__);
         $this->apiKey = $apiKey;
     }
+
     static public function init($apiKey) {
         if (!isset(self::$senders[$apiKey])) {
             self::$senders[$apiKey] = new self($apiKey);
@@ -32,6 +33,12 @@ class Unisender extends \MailSender\Classes\AbstractMailSender {
         return $this->request("importContacts",$settings);
     }
 
+    /**
+     * Запрос в unisender
+     * @param $method
+     * @param array $args
+     * @return mixed
+     */
     private function request($method,$args = []) {
         $sendArgs = ["api_key" => $this->apiKey];
         if (!empty($args)) {
@@ -56,6 +63,13 @@ class Unisender extends \MailSender\Classes\AbstractMailSender {
         return json_decode($ret,true);
     }
 
+    /**
+     * Подготовка данных из человеческого формата в формат unisender
+     * @param $src
+     * @param $args
+     * @param string $key
+     * @param string $train
+     */
     private function prepareArgs(&$src, $args, $key = "", $train = "") {
         if (empty($tran))
             unset($src[$key]);
@@ -67,7 +81,12 @@ class Unisender extends \MailSender\Classes\AbstractMailSender {
             }
         }
     }
-    
+
+    /**
+     * Получить значения данных пользователей в разрезе указанных параметров
+     * @param $unitArgs array
+     * @return array
+     */
     private function getUnitsData($unitArgs) {
         $ret = [];
         $units = $this->getUnits();
@@ -87,6 +106,10 @@ class Unisender extends \MailSender\Classes\AbstractMailSender {
         return $ret;
     }
 
+    /**
+     * Получить все возможные параметры пользователей из списка
+     * @return array
+     */
     private function getUserArgs() {
         $units = $this->getUnits();
         $allParams = [];

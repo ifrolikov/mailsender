@@ -3,7 +3,7 @@ namespace MailSender\Classes;
 
 abstract class AbstractMailSender implements \MailSender\Interfaces\MailSender {
     private $units = [];
-    public function addUnit($unit) {
+    public function addUnit(\MailSender\Interfaces\MailSenderUnit $unit) {
         if (!($unit instanceof \MailSender\Interfaces\MailSenderUnit))
             throw new \Exception("Не верный тип адресата MailSender");
         
