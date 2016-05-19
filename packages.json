@@ -2,7 +2,7 @@
   "name": "ifrolikov/mailsender",
   "description": "MailSenders tools",
   "version": "0.1.0",
-  "type": "package",
+  "type": "library",
   "source": [
     {
       "type": "git",
